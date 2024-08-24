@@ -1,0 +1,32 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "files.autoSave": "afterDelay",
+    "debug.toolBarLocation": "docked",
+    "breadcrumbs.enabled": true,
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
+    "editor.guides.bracketPairs": true,
+    "editor.formatOnPaste": true,
+    "errorLens.enabled": true,
+    "errorLens.enabledInMergeConflict": true,
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning",
+        "info"
+    ],
+    "errorLens.messageBackgroundMode": "line",
+    "dart.lineLength": 160,
+    "[dart]": {
+        "editor.tabSize": 2,
+        "editor.rulers": [160],
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.defaultFormatter": "Dart-Code.dart-code",
+    },
+    "editor.rulers": [160],
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "git.mergeEditor": true,
+}
