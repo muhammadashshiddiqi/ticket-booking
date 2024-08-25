@@ -7,6 +7,10 @@ Ticket booking is the process of ordering tickets for an event, trip, or certain
 ## Usage
 
 ```go
+# configure
+    - docker
+    - air 
+    
 # frontend
     - flutter v3.22.3
     - fstudio
