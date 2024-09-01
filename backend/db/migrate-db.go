@@ -6,8 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-
-
-func DBMigrate(db *gorm.DB) error {
+func DBMigrator(db *gorm.DB) error {
+	//db.Migrator().DropTable(&models.Event{})
 	return db.AutoMigrate(&models.Event{})
 }

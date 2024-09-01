@@ -1,0 +1,14 @@
+@baseUrl = http://localhost:8081
+
+### get all event
+GET {{baseUrl}}/api/event/
+
+
+### create event
+POST {{baseUrl}}/api/event/
+
+{
+    "name": "Muhammad Ashshiddiqi",
+    "nin": "9876543210",
+    "location": "PRJ Kemayoran"
+}
