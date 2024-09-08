@@ -3,6 +3,8 @@ package models
 import (
 	"context"
 	"time"
+
+	"gorm.io/gorm"
 )
 
 type Event struct {
@@ -23,4 +25,19 @@ type EventRepo interface {
 	RepoCreateEvent(ctx context.Context, event *Event) (*Event, error)
 	RepoUpdateEvent(ctx context.Context, eventId uint, updateData map[string]interface{}) (*Event, error)
 	RepoDeleteEvent(ctx context.Context, eventId uint) error
+}
+
+
+func (e *Event) AfterFind(db *gorm.DB) (err error)  {
+	baseQuery := db.Model(&Ticket{}).Where(&Ticket{EventID: e.ID})
+
+	if res := baseQuery.Count(&e.TotalTicketsPurchased); res.Error != nil {
+		return res.Error
+	}
+
+	if res := baseQuery.Where("entered = ?", true).Count(&e.TotalTicketsEntered); res.Error != nil {
+		return res.Error
+	}
+
+	return nil
 }

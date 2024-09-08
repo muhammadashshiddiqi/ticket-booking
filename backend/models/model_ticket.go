@@ -16,10 +16,10 @@ type Ticket struct {
 }
 
 type TicketRepo interface {
-	GetAllTicket(ctx context.Context) ([]*Ticket, error)
-	GetMyTicket(ctx context.Context, ticketId uint) (*Ticket, error)
-	CreateTicket(ctx context.Context, ticket *Ticket) (*Ticket, error)
-	UpdateMyTicket(ctx context.Context, ticketId uint, updateData map[string]interface{}) (*Ticket, error)
+	GetAllTicket(ctx context.Context, userId uint) ([]*Ticket, error)
+	GetMyTicket(ctx context.Context, userId uint, ticketId uint) (*Ticket, error)
+	CreateTicket(ctx context.Context, userId uint, ticket *Ticket) (*Ticket, error)
+	UpdateMyTicket(ctx context.Context, userId uint, ticketId uint, updateData map[string]interface{}) (*Ticket, error)
 }
 
 type ValidateEntryTicket struct {

@@ -8,7 +8,23 @@ GET {{baseUrl}}/api/event/
 POST {{baseUrl}}/api/event/
 
 {
+    "name": "Sidiq 2",
+    "nin": "12345678911",
+    "location": "JCC",
+    "total_tickets_purchased": 0,
+    "total_tickets_entered": 100
+}
+
+### get my event
+GET {{baseUrl}}/api/event/1
+
+### delete my event
+DELETE {{baseUrl}}/api/event/3
+
+### update my event
+PATCH {{baseUrl}}/api/event/2
+{
     "name": "Muhammad Ashshiddiqi",
-    "nin": "9876543210",
-    "location": "PRJ Kemayoran"
+    "nin": "12345678911",
+    "location": "JCC"
 }
