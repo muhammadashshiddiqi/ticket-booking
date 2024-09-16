@@ -1,0 +1,9 @@
+@baseUrl = http://localhost:8081
+
+### register
+POST {{baseUrl}}/auth/register
+
+{
+    "email": "manager@dev.com",
+    "password": "admin1234"
+}

@@ -17,9 +17,8 @@ services:
       db:
         condition: service_healthy
     volumes:
-      - .:/src/app
-    command: air -c .air.toml
-    
+      - .:/src/app/go-tiket-booking
+    # command: go run ./cmd/api/main.go -b 0.0.0.0
   db:
     image: postgres:alpine
     container_name: ticket-booking-db

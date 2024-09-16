@@ -3,10 +3,8 @@
 ### get all event
 GET {{baseUrl}}/api/event/
 
-
 ### create event
 POST {{baseUrl}}/api/event/
-
 {
     "name": "Sidiq 2",
     "nin": "12345678911",

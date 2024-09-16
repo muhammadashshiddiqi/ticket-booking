@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:8081
+
+### get all tickets
+GET {{baseUrl}}/api/ticket
+
+
+### create ticket
+POST {{baseUrl}}/api/ticket
+{
+    "eventId": 1
+}
+
+### get my ticket
+GET {{baseUrl}}/api/ticket/1
+
+
+### get entered
+POST {{baseUrl}}/api/ticket/validate
+{
+    "entered": true,
+    "ticketId": 1
+}
+
