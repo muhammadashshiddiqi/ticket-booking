@@ -12,7 +12,7 @@ import (
 
 
 func Init(c *config.EnvConfig, DBMigrator func(*gorm.DB) error) *gorm.DB {
-	uri := fmt.Sprintf(`host=%s user=%s dbname=%s password=%s sslmode=%s port=5432`, c.DBHost, c.DBUser, c.DBName, c.DBPassword, c.DBSSLMode)	
+	uri := fmt.Sprintf(`host=%s user=%s dbname=%s password=%s sslmode=%s port=%s`, c.DBHost, c.DBUser, c.DBName, c.DBPassword, c.DBSSLMode, c.DBPort)	
 
 
 	db, err := gorm.Open(postgres.Open(uri), &gorm.Config{
@@ -27,6 +27,6 @@ func Init(c *config.EnvConfig, DBMigrator func(*gorm.DB) error) *gorm.DB {
 	if err := DBMigrator(db); err != nil {
 		log.Fatalf("Unable to migrate db : %v", err)
 	}
-
+	fmt.Println("APAKAH MASUK")
 	return db
 }

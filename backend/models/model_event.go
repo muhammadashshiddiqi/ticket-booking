@@ -9,7 +9,6 @@ import (
 
 type Event struct {
 	ID                    uint      `json:"id" gorm:"primarykey"`
-	NIN                   string    `json:"nin"`
 	Name                  string    `json:"name"`
 	Location              string    `json:"location"`
 	TotalTicketsPurchased int64     `json:"total_tickets_purchased" gorm:"-"`

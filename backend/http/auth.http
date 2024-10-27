@@ -1,9 +1,16 @@
 @baseUrl = http://localhost:8081
-
-### register
-POST {{baseUrl}}/auth/register
+### login
+POST {{baseUrl}}/api/auth/login
 
 {
     "email": "manager@dev.com",
     "password": "admin1234"
+}
+
+### register
+POST {{baseUrl}}/api/auth/register
+
+{
+    "email": "manager@gmail.com",
+    "password": "manager"
 }

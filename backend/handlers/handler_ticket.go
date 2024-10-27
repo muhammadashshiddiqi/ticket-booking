@@ -21,17 +21,17 @@ func (h *TicketHandler) GetAllTicket(ctx *fiber.Ctx) error {
 
 	userId := uint(ctx.Locals("userId").(float64))
 	tickets, err := h.repo.GetAllTicket(context, userId)
+
 	if err != nil {
 		return ctx.Status(fiber.StatusBadRequest).JSON(&fiber.Map{
-			"status":  "failed",
+			"status":  "fail",
 			"message": err.Error(),
-			"data":    nil,
 		})
 	}
 
 	return ctx.Status(fiber.StatusOK).JSON(&fiber.Map{
 		"status":  "success",
-		"message": "successfully get all tickets.",
+		"message": "",
 		"data":    tickets,
 	})
 }
@@ -56,7 +56,7 @@ func (h *TicketHandler) GetMyTicket(ctx *fiber.Ctx) error {
 
 	var QRCode []byte
 	QRCode, err = qrcode.Encode(
-		fmt.Sprintf("ticketId:%v", "ownerId:%v", ticketId, userId),
+		fmt.Sprintf("ticketId:%v,ownerId:%v", ticketId, userId),
 		qrcode.Medium,
 		256,
 	)
@@ -84,6 +84,7 @@ func (h *TicketHandler) CreateTicket(ctx *fiber.Ctx) error {
 	defer cancel()
 
 	ticket := &models.Ticket{}
+	userId := uint(ctx.Locals("userId").(float64))
 
 	if err := ctx.BodyParser(ticket); err != nil {
 		return ctx.Status(fiber.StatusUnprocessableEntity).JSON(&fiber.Map{
@@ -93,9 +94,7 @@ func (h *TicketHandler) CreateTicket(ctx *fiber.Ctx) error {
 		})
 	}
 
-	userId := uint(ctx.Locals("userId").(float64))
 	ticket, err := h.repo.CreateTicket(context, userId, ticket)
-
 	if err != nil {
 		return ctx.Status(fiber.StatusBadRequest).JSON(&fiber.Map{
 			"status":  "failed",

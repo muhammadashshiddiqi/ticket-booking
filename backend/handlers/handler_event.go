@@ -53,7 +53,7 @@ func (h *EventHandler) GetMyEvent(ctx *fiber.Ctx) error {
 
 	return ctx.Status(fiber.StatusOK).JSON(&fiber.Map{
 		"status":  "success",
-		"message": "successfully your ticket",
+		"message": "successfully your event",
 		"data":    event,
 	})
 }
@@ -82,7 +82,7 @@ func (h *EventHandler) CreateEvent(ctx *fiber.Ctx) error {
 
 	return ctx.Status(fiber.StatusOK).JSON(&fiber.Map{
 		"status":  "success",
-		"message": "successfully ticket created",
+		"message": "successfully event created",
 		"data":    event,
 	})
 }
@@ -112,7 +112,7 @@ func (h *EventHandler) UpdateMyEvent(ctx *fiber.Ctx) error {
 
 	return ctx.Status(fiber.StatusOK).JSON(&fiber.Map{
 		"status":  "success",
-		"message": "successfully ticket updated",
+		"message": "successfully event updated",
 		"data":    event,
 	})
 
@@ -133,7 +133,7 @@ func (h *EventHandler) DeleteMyEvent(ctx *fiber.Ctx) error {
 
 	return ctx.Status(fiber.StatusOK).JSON(&fiber.Map{
 		"status":  "success",
-		"message": "successfully ticket deleted",
+		"message": "successfully event deleted",
 	})
 
 }

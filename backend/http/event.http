@@ -6,8 +6,7 @@ GET {{baseUrl}}/api/event/
 ### create event
 POST {{baseUrl}}/api/event/
 {
-    "name": "Sidiq 2",
-    "nin": "12345678911",
+    "name": "Tasyakuran",
     "location": "JCC",
     "total_tickets_purchased": 0,
     "total_tickets_entered": 100

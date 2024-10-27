@@ -28,11 +28,10 @@ func main() {
 
 	//service
 	authService := services.NewAuthService(authRepo)
-	
+
 	//routing
 	server := app.Group("/api")
 	handlers.NewAuthHandler(server.Group("/auth"), authService)
-	
 	privateRoutes := server.Use(middlewares.AuthProtected(db))
 
 	//handlers

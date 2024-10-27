@@ -1,11 +1,57 @@
+# version: "3.9"
+
+# services:
+#   goapp:
+#     tty: true 
+#     restart: always
+#     image: ticket-booking-app
+#     container_name: ticket-booking-app
+#     build: .
+#     ports:
+#       - 3333:3333
+#     env_file:
+#       - .env
+#     networks:
+#       - application
+#     depends_on:
+#       godb:
+#         condition: service_healthy
+
+#   godb:
+#     image: postgres:alpine
+#     container_name: ticket-booking-db
+#     environment:
+#       - POSTGRES_HOST=${DB_HOST}
+#       - POSTGRES_DB=${DB_NAME}
+#       - POSTGRES_USER=${DB_USER}
+#       - POSTGRES_PASSWORD=${DB_PASSWORD}
+#     ports:
+#       - 5432:5432
+#     volumes:
+#       - docker-mounts:/var/lib/postgresql/data
+#     networks:
+#       - application
+#     healthcheck:
+#       test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+
+# networks:
+#   application:
+
+# volumes:
+#   docker-mounts:
+
+
 version: "3.9"
 
 services:
   app:
     tty: true
     restart: always
-    image: ticket-booking
-    container_name: ticket-booking
+    image: ticket-booking-app
+    container_name: ticket-booking-app
     build: .
     ports:
       - 8081:8081
@@ -17,13 +63,15 @@ services:
       db:
         condition: service_healthy
     volumes:
-      - .:/src/app/go-tiket-booking
-    # command: go run ./cmd/api/main.go -b 0.0.0.0
+      - .:/src/app
+    command: go run ./cmd/api/main.go -b 0.0.0.0
+    
   db:
     image: postgres:alpine
     container_name: ticket-booking-db
     environment:
       - POSTGRES_HOST=${DB_HOST}
+      - POSTGRES_PORT=${DB_PORT}
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}

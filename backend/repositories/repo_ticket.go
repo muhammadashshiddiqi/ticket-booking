@@ -13,6 +13,7 @@ type TicketRepository struct {
 
 // CreateTicket implements models.TicketRepo.
 func (r TicketRepository) CreateTicket(ctx context.Context, userId uint, ticket *models.Ticket) (*models.Ticket, error) {
+	ticket.UserID = userId
 	res := r.db.Model(ticket).Create(ticket)
 
 	if res.Error != nil {
@@ -26,7 +27,8 @@ func (r TicketRepository) CreateTicket(ctx context.Context, userId uint, ticket 
 func (r TicketRepository) GetAllTicket(ctx context.Context, userId uint) ([]*models.Ticket, error) {
 	tickets := []*models.Ticket{}
 
-	res := r.db.Model(&models.Ticket{}).Where("user_id = ?", userId).Preload("Event").Order("updated_at DESC").Find(tickets)
+	res := r.db.Model(&models.Ticket{}).Where("user_id = ?", userId).Preload("Event").Order("updated_at desc").Find(&tickets)
+
 	if res.Error != nil {
 		return nil, res.Error
 	}
@@ -59,8 +61,8 @@ func (r *TicketRepository) UpdateMyTicket(ctx context.Context, userId uint, tick
 	return r.GetMyTicket(ctx, userId, ticketId)
 }
 
-func NewTicketRepository(db *gorm.DB) models.TicketRepo {
+func NewTicketRepository(repo *gorm.DB) models.TicketRepo {
 	return &TicketRepository{
-		db: db,
+		db: repo,
 	}
 }

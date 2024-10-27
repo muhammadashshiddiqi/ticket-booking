@@ -38,8 +38,8 @@ func (r *AuthRepository) GetUser(ctx context.Context, query interface{}, args ..
 	return user, nil
 }
 
-func NewAuthRepository(db *gorm.DB) models.AuthRepository {
+func NewAuthRepository(repo *gorm.DB) models.AuthRepository {
 	return &AuthRepository{
-		db: db,
+		db: repo,
 	}
 }
