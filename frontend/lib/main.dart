@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:ticket_booking_app/pages/home-page/home_page.dart';
+import 'package:ticket_booking_app/pages/login-page/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(null).getWidget(),
+      home: LoginPage(null).getWidget(),
     );
   }
 }

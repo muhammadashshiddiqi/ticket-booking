@@ -116,6 +116,7 @@ class InputEventPage extends FPage<InputEventPageLogic> {
                     borderRadius: BorderRadius.circular(8),
                     side: BorderSide(width: 1.5, color: Colors.grey.shade300),
                   ),
+                  color: Colors.transparent,
                   clipBehavior: Clip.antiAlias,
                   elevation: 0,
                   child: InkWell(
@@ -143,6 +144,7 @@ class InputEventPage extends FPage<InputEventPageLogic> {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             clipBehavior: Clip.antiAlias,
             elevation: 0,
+            color: Colors.transparent,
             margin: const EdgeInsets.only(bottom: 16, right: 16, left: 16),
             child: InkWell(
               onTap: logic.pageBack,
@@ -177,6 +179,8 @@ class InputEventPage extends FPage<InputEventPageLogic> {
           Card(
             shape: const CircleBorder(),
             clipBehavior: Clip.antiAlias,
+            elevation: 0,
+            color: Colors.transparent,
             child: InkWell(
               onTap: logic.pageBack,
               child: const Padding(

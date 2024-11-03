@@ -119,6 +119,7 @@ class DetailEventPage extends FPage<DetailEventPageLogic> {
                     side: BorderSide(width: 1.5, color: Colors.grey.shade300),
                   ),
                   clipBehavior: Clip.antiAlias,
+                  color: Colors.transparent,
                   elevation: 0,
                   child: InkWell(
                     onTap: logic.pageBack,
@@ -145,6 +146,7 @@ class DetailEventPage extends FPage<DetailEventPageLogic> {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             clipBehavior: Clip.antiAlias,
             elevation: 0,
+            color: Colors.transparent,
             margin: const EdgeInsets.only(bottom: 16, right: 16, left: 16),
             child: InkWell(
               onTap: logic.onTapBuy,
@@ -169,6 +171,7 @@ class DetailEventPage extends FPage<DetailEventPageLogic> {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             clipBehavior: Clip.antiAlias,
             elevation: 0,
+            color: Colors.transparent,
             margin: const EdgeInsets.only(bottom: 16, right: 16, left: 16),
             child: InkWell(
               onTap: logic.onTapBuy,
@@ -193,6 +196,7 @@ class DetailEventPage extends FPage<DetailEventPageLogic> {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             clipBehavior: Clip.antiAlias,
             elevation: 0,
+            color: Colors.transparent,
             margin: const EdgeInsets.only(bottom: 16, right: 16, left: 16),
             child: InkWell(
               onTap: logic.onTapBuy,
@@ -227,6 +231,8 @@ class DetailEventPage extends FPage<DetailEventPageLogic> {
           Card(
             shape: const CircleBorder(),
             clipBehavior: Clip.antiAlias,
+            color: Colors.transparent,
+            elevation: 0,
             child: InkWell(
               onTap: logic.pageBack,
               child: const Padding(

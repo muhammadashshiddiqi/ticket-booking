@@ -38,6 +38,8 @@ extension EventPage on HomePage {
           Card(
             shape: const CircleBorder(),
             clipBehavior: Clip.antiAlias,
+            elevation: 0,
+            color: Colors.transparent,
             child: InkWell(
               onTap: logic.onTapAdd,
               child: const Padding(
