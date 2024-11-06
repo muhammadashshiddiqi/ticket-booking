@@ -1,4 +1,5 @@
 import 'package:fstudio/fstudio.dart';
+import 'package:ticket_booking_app/pages/home-page/home_page.dart';
 import 'package:ticket_booking_app/pages/login-page/login_page.dart';
 import 'package:ticket_booking_app/pages/register-page/register_page.dart';
 
@@ -18,6 +19,16 @@ class LoginPageLogic extends FPageLogic<LoginPage> {
   void onTapRegister() async {
     await pageOpen(
       RegisterPage(transitionHolder),
+      getTransitionHolder: (holder) {
+        holder.animationEnabled = false;
+        holder.withMatchingBuilder = false;
+      },
+    );
+  }
+
+  void onTapLogin() async {
+    await pageOpen(
+      HomePage(transitionHolder),
       getTransitionHolder: (holder) {
         holder.animationEnabled = false;
         holder.withMatchingBuilder = false;

@@ -185,7 +185,10 @@ class InputEventPage extends FPage<InputEventPageLogic> {
               onTap: logic.pageBack,
               child: const Padding(
                 padding: EdgeInsets.all(4),
-                child: Icon(Icons.keyboard_arrow_left_rounded),
+                child: Icon(
+                  Icons.keyboard_arrow_left_rounded,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

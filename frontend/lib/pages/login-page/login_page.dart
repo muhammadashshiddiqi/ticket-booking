@@ -122,7 +122,7 @@ class LoginPage extends FPage<LoginPageLogic> {
               color: Colors.indigo,
               elevation: 0,
               child: InkWell(
-                onTap: logic.onTapShowPassword,
+                onTap: logic.onTapLogin,
                 child: Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(16),

@@ -31,7 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
-  fstudio: ^1.0.5
+  fstudio: ^1.0.6
 
 dev_dependencies:
 

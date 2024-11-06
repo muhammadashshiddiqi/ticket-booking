@@ -237,7 +237,10 @@ class DetailEventPage extends FPage<DetailEventPageLogic> {
               onTap: logic.pageBack,
               child: const Padding(
                 padding: EdgeInsets.all(4),
-                child: Icon(Icons.keyboard_arrow_left_rounded),
+                child: Icon(
+                  Icons.keyboard_arrow_left_rounded,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

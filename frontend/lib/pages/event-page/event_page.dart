@@ -44,7 +44,10 @@ extension EventPage on HomePage {
               onTap: logic.onTapAdd,
               child: const Padding(
                 padding: EdgeInsets.all(4),
-                child: Icon(Icons.add),
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
