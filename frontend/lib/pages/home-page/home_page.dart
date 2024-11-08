@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fstudio/fstudio.dart';
 import 'package:ticket_booking_app/pages/event-page/event_page.dart';
 import 'package:ticket_booking_app/pages/home-page/home_page_logic.dart';
+import 'package:ticket_booking_app/pages/scan-page/scan_page.dart';
 import 'package:ticket_booking_app/pages/settings-page/settings_page.dart';
 import 'package:ticket_booking_app/pages/ticket-page/ticket_page.dart';
 
@@ -53,6 +54,15 @@ class HomePage extends FPage<HomePageLogic> {
             icon: Icon(
               Icons.confirmation_number_outlined,
               color: activeView == 2 ? Colors.white : Colors.black,
+            ),
+          ),
+          _itemBottom(
+            title: 'ScanQR',
+            onTap: () => logic.onTapMenu(4),
+            isActive: activeView == 4,
+            icon: Icon(
+              Icons.qr_code,
+              color: activeView == 4 ? Colors.white : Colors.black,
             ),
           ),
           _itemBottom(
@@ -110,6 +120,7 @@ class HomePage extends FPage<HomePageLogic> {
         1: eventPage(logic.eventPageLogic),
         2: ticketPage(logic.ticketPageLogic),
         3: settingsPage(logic.settingsPageLogic),
+        4: scanPage(logic.scanPageLogic),
       };
 
       return viewMap[activeView] ?? const SizedBox();
